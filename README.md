@@ -1,4 +1,4 @@
-# slack-pairs
+# rotating-brunch
 
 This application is intended to be a self-hosted version of Donut.
 
