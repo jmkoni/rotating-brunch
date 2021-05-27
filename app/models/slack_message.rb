@@ -2,7 +2,7 @@ module SlackMessage
   module_function
 
   def group_message(group:)
-    group_usernames = group.map{ |user| "<@#{user}>" }.to_sentence
+    group_usernames = group.map { |user| "<@#{user}>" }.to_sentence
     [
       {
         type: "section",
