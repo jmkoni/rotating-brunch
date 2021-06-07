@@ -3,7 +3,7 @@ class CreateGroupsJob < ApplicationJob
 
   def self.perform
     date = Date.today
-    if date.monday? && date.cweek.even?
+    if date.monday? && date.cweek.odd?
       Rails.logger.info("Running CreateGroupsJob")
       members = Slack::Client.get_channel_users
       groups = group_members(members: members)
