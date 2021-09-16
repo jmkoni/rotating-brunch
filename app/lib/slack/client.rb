@@ -9,7 +9,8 @@ module Slack
           channel: ENV["GROUP_CHANNEL"],
           limit: 10000
         )
-        members.members
+        # don't put channitor in a group
+        members.members.reject!{|m| m == "U02F2U3RQKS" }
       end
 
       def create_conversation(group:)

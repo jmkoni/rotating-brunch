@@ -4,7 +4,7 @@ class CreateGroupsJob < ApplicationJob
   class << self
     def perform
       date = Date.today
-      if date.monday? && date.cweek.odd?
+      if date.monday? && date.cweek.even?
         perform!
       end
     end
@@ -24,6 +24,7 @@ class CreateGroupsJob < ApplicationJob
     end
 
     def balance_groups(groups)
+      return groups if groups.length < 2
       i = -2
       while groups.last.length < (MAX_GROUP_SIZE - 1)
         groups.last << groups[i].pop
