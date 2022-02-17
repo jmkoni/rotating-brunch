@@ -9,7 +9,7 @@ module Slack
           channel: ENV["GROUP_CHANNEL"],
           limit: 10000
         )
-        members.members
+        members.members.reject { |m| m == "U02F2U3RQKS" }
       end
 
       def create_conversation(group:)
@@ -18,6 +18,15 @@ module Slack
         client.chat_postMessage(
           channel: conv.channel.id,
           blocks: SlackMessage.group_message(group: group)
+        )
+      end
+
+      def send_error_message(error:)
+        client ||= default_client
+        conv = client.conversations_open(users: ENV["USER_ID_FOR_ERROR"]) # send error message to jmkoni
+        client.chat_postMessage(
+          channel: conv.channel.id,
+          blocks: SlackMessage.error_message(error: error)
         )
       end
 

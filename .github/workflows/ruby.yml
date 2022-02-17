@@ -9,11 +9,15 @@ name: Ruby
 
 on:
   push:
-    branches: [ main ]
-  pull_request: {}
-
+    branches:
+      - main
+      - 'meet-splice'
+  pull_request:
+    branches:
+      - main
+      - 'meet-splice'
 jobs:
-  linter:
+  linter_and_tests:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -31,3 +35,5 @@ jobs:
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Run linter
       run: bundle exec standardrb
+    - name: Run tests
+      run: bundle exec rspec
