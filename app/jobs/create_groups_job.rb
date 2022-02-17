@@ -14,6 +14,9 @@ class CreateGroupsJob < ApplicationJob
       members = Slack::Client.get_channel_users
       groups = group_members(members: members)
       start_conversations(groups: groups)
+    rescue => e
+      Rails.logger.error("MEET SPLICE IS DOWN: #{e}")
+      Slack::Client.send_error_message(error: e)
     end
 
     def group_members(members:)
