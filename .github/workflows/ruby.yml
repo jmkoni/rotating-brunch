@@ -11,11 +11,9 @@ on:
   push:
     branches:
       - main
-      - 'meet-splice'
   pull_request:
     branches:
       - main
-      - 'meet-splice'
 jobs:
   linter_and_tests:
     runs-on: ubuntu-latest

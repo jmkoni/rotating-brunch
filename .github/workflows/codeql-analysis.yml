@@ -15,11 +15,9 @@ on:
   push:
     branches:
       - main
-      - 'meet-splice'
   pull_request:
     branches:
       - main
-      - 'meet-splice'
   schedule:
     - cron: '20 17 * * 2'
 
