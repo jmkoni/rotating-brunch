@@ -1,5 +1,7 @@
 # Rotating Brunch
 
+NOTE: This has been deprecated for [slack-pairs](https://github.com/jmkoni/slack-pairs) which combines both.
+
 This application is intended to be a self-hosted version of Donut.
 
 ## System Requirements
